@@ -1,0 +1,432 @@
+
+
+/* ! supression des width 100vw pour éviter scroll R-G */
+
+/* global */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/******************************************* header */
+
+header {
+    background: url(../medias/bg.jpg)center/cover;
+    /* correction pas vh??? */
+   height: 500px;
+   position: relative;
+   color: white;
+  
+    
+}
+
+/* content du h1 + button : centrer d'abord la boite*/
+.header-content {
+    /* centrer width + margin */
+    /* j'avais mis ça mais non ??width: 50%;
+    margin: 0 auto; */
+    /* centrer button */
+    /* pas position: relative; mais abso */
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+
+    
+}
+
+/* filtre */
+header::before {
+    content: '';
+    /* correction pas en vh mais en px et dire 100% du parent  */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* ici mettre une width pour appliquer le filter? */
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+header h1 {
+   
+    font-size: 45px;
+    font-weight: 500;
+    text-align: center; 
+    margin-bottom: 50px;
+    
+}
+  
+
+/* logo ara */
+header img {
+    height: 10%;
+    position: relative;
+    margin: 15px 25px;
+}
+/* triangle */
+.header-content a::before {
+    content: '';
+    /* changer état pour que largeur et hauteur prises en compte */
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 8px;
+    border-color: transparent transparent transparent #fafafa;
+    margin-right: 15px;
+}
+
+
+/* button header */
+
+.header-content .btn {
+    color: white;
+    /* inherit color */
+    text-decoration: none;
+    border: 2px solid white;
+    background: transparent;
+    padding:13px 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* *********** main section 1 : 2 blocs +img seule*/
+/* ************************************************** */
+/* reprend tout les content!!! */
+.content {
+    text-align: center;
+    padding: 25px;
+
+}
+
+.life-and-tech__specs .frame {
+    /* display: block; */
+    padding: 15px;
+    background: rgb(85, 237, 222);
+    text-align: center;
+    font-size: 15px;
+
+}
+
+.life-and-tech__specs .modules {
+    /* display: block; */
+    background: rgb(224, 79, 57);
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* img seule */
+.life-and-tech .half--img {
+    background: url(../medias/phone2.jpg)center/cover;
+    height: 50vh;
+   
+}
+
+/* *************************************** */
+/************************ main section 2  */
+/* ************************************** */
+
+
+
+.mix-match-swap .half--img {
+
+    background: url(../medias/2.jpg)center/cover;
+    /* en px */
+    height: 200px;
+} 
+
+/* box 2 img */
+ .built-to-last .half--img {
+    background: url(../medias/03.jpg)center/cover;
+    height: 200px;
+}
+/* box du content */
+
+.mix-match-swap .half,.built-to-last .half {
+    height: 25vh;
+    width: 100vw;
+}
+
+/* content voir en haut avec le h2 seul*/
+
+
+
+/* ***************************footer  */
+/* **************** */
+
+footer {
+    background: black;
+    color:white;
+    /* pas mettre aussi non probleme au 900px text-align: center; */
+    padding: 50px;
+    /* pas besoin de hauteur */
+}
+footer small {
+    color: white;
+    display: inline-block;    
+}
+small img {
+   width: 120px;
+   /* pour aligner le copyright */
+   vertical-align: middle;
+    margin-left: 15px;
+   
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+
+    /* padding: 15px; non dc correction :*/
+    margin-top: 15px;
+    
+   
+}
+ 
+   
+/* faire les fleches + faire des img plus petites et figées puis faire versions en large */
+
+
+/* !!!!!!!!!!!!!!!!!!!! version lagre!!!!!!!!!!!!!!!!!!!!! 
+ /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+ @media screen and (min-width: 900px) {
+    body {
+        text-align: left;
+    }
+
+    header {
+        height: 790px;   
+    }
+
+    /* h1 + button */
+    .header-content {
+        position:absolute;
+        top:auto;
+        /* remonter le bouton dc pas besoin de jouer sur le btn */
+        bottom: 90px;
+        left: 50px;
+        /* transform à changer et width à retirer*/
+       
+        transform: none;  
+       
+    }
+
+    /* correction :rajouter header img */
+    header img {
+        top:50px;
+        left: 50px;
+    }
+
+    /* filter */
+    header::before {
+        display: none;
+        /* content: '';
+        height:790px;
+       width: 100%;
+       background: rgba(0, 0, 0, 0.3);
+       opacity: 0.5; */
+       
+    
+    } 
+    
+    /* h 1 */
+    header h1 {
+   
+        color: white;
+        font-size: 75px;
+        font-weight: 500;
+        text-align: left; 
+       
+    }
+    
+  
+ 
+/* *********** main section 1 : 2 blocs +img seule*/
+/* ************************************************** */
+
+  
+    .life-and-tech {
+        position: relative;
+        width: 100vw;
+     
+    }
+    /* width à la boite puis on s'occupe du h2 */
+    .life-and-tech__content {       
+        display: inline-block;
+        width: 50vw;
+        height: 40vh;
+        position: relative;
+        vertical-align: top;
+    } 
+    /* h1 pos center */
+    .life-and-tech__content h2 {
+       position:absolute;
+       top:50%;
+       left:40%;
+       transform: translate(-50%,-50%);
+        text-align: left;   
+        
+    }
+ 
+    /* 2 box côte à côte */
+    .life-and-tech__specs .frame,.life-and-tech__specs .modules {
+        /* display: block; */
+        display: inline-block;
+        width: 25vw;
+        height: 40vh;
+        vertical-align: top;
+        position: relative;
+        font-size: 13px;
+    }
+    
+    .life-and-tech__specs .frame .content,.life-and-tech__specs .modules .content {
+
+    text-align: left;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    line-height: 30px; 
+    padding-bottom: 10px;
+    }
+   
+    
+    /* img seule */
+    .life-and-tech .half--img {
+        height: 80vh;
+        display: inline-block;
+        width: 50vw;
+        right: 0;
+        position: absolute;
+        top: 0;   
+    }
+
+    /************************ main section 2  */
+/* ************************************** */
+
+/* box qui comprend tout */
+.mix-match-swap, .built-to-last {
+    position: relative;
+    width: 100vw;
+    height: 40vh;
+   
+}
+/* ************* BOX 1 */
+/* box content */
+.mix-match-swap .half {
+    display: inline-block;
+   height: 40vh;
+   width: 50vw;
+   position: absolute;
+   right: 0;
+   font-size: 14px;
+   padding-top: 25px;
+}
+/* content */
+.mix-match-swap .half .content {
+    text-align: left;
+   width: 70%;
+  margin-left: 80px;
+   line-height: 35px; 
+ 
+}
+
+.mix-match-swap .half--img {
+    display: inline-block;
+   height: 40vh;
+   width: 50vw;
+   left: 0;
+}
+ /* ************** BOX 2 */
+ .built-to-last .half {
+    display: inline-block;
+   height: 40vh;
+   width: 50vw;
+   position: absolute;
+   
+}
+/* content */
+.built-to-last .half .content {
+    text-align: left;
+   width: 70%;
+    margin-left: 80px;
+   line-height: 35px;  
+   font-size: 14px;
+   padding-top: 25px;
+}
+
+.built-to-last .half--img {
+    display: inline-block;
+   height: 40vh;
+   width: 50vw;
+   right: 0;
+   
+}
+/* pour mettre le content plus étroit jouer avec les P:width70% en version large */ 
+
+
+/* footer  */
+/* correction */
+footer nav a {
+    display: inline-block;
+    margin-top:0;
+    margin-left: 15px;
+}
+
+
+footer nav {
+ 
+    float: right; 
+   
+}
+
+
+footer nav img {
+    vertical-align: middle;
+  
+ 
+}
+
+
+/* ********************large 1200px apparition des images dans les box côte à côte */
+
+@media screen and (min-width:1200px) {
+        /* 2 box côte à côte */
+   
+    /* .life-and-tech__specs .frame .content,.life-and-tech__specs .modules .content {
+        padding-top: 80px;
+        } */
+    .frame::before {
+        content: '';
+        background: url(../medias/illy1.png)center/cover;
+        height: 59px;
+        width: 34px;
+        /* état à mentionner pour afficher */
+       display:block;
+       margin-left: 25px;
+       margin-top: 25px;
+        }
+
+    .modules::before {
+        content: '';
+        background: url(../medias/illy2.png)center/cover;
+        height: 59px;
+        width: 34px;
+        display: block;
+        margin-left: 25px;
+        margin-top: 25px;
+        
+    }
+}
+
+
+
+ }
